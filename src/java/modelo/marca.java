@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SistemasU
  */
-public class marca extends pers_marca{
+public class marca{
     private int idmarca;
     private String marca;
 
@@ -24,22 +24,22 @@ public class marca extends pers_marca{
         this.marca = marca;
     }
     
-    @Override
+    //@Override
     public int getIdmarca() {
         return idmarca;
     }
 
-    @Override
+    //@Override
     public void setIdmarca(int idmarca) {
         this.idmarca = idmarca;
     }
 
-    @Override
+    //@Override
     public String getMarca() {
         return marca;
     }
 
-    @Override
+    //@Override
     public void setMarca(String marca) {
         this.marca = marca;
     }
@@ -85,7 +85,7 @@ public class marca extends pers_marca{
     
     return tabla;
     }    
-@Override
+//@Override
     public int agregar(){
         int retorno =0;
         try{
@@ -108,7 +108,7 @@ public class marca extends pers_marca{
         return retorno;
   }   
     
-    @Override
+  //  @Override
     public int modificar(){
         int retorno =0;
         try{
@@ -134,7 +134,7 @@ public class marca extends pers_marca{
         return retorno;
   }   
     
-    @Override
+    //@Override
     public int eliminar(){
         int retorno =0;
         try{

@@ -13,18 +13,32 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author SistemasU
  */
-public class producto extends pers_produc{
+public class producto{
     private String producto;
     private int idmarca;
+    private int idp;
+    private int existencia;
+    private String descripcion;
+    private String imagen;
+    private String fecha_ingreso;
+    private float precio_costos;
+    private float precio_venta;
 
     private conexion cn;
-    public producto() {}
-    public producto(String producto, int idmarca, int idp, int exitencia, String descripcion, String imagen, String fecha_ingreso, float precio_costos, float precio_venta) {
-        super(idp, exitencia, descripcion, imagen, fecha_ingreso, precio_costos, precio_venta);
+    public producto(){};
+    public producto(String producto, int idmarca, int idp, int existencia, String descripcion, String imagen, String fecha_ingreso, float precio_costos, float precio_venta) {
         this.producto = producto;
         this.idmarca = idmarca;
+        this.idp = idp;
+        this.existencia = existencia;
+        this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.fecha_ingreso = fecha_ingreso;
+        this.precio_costos = precio_costos;
+        this.precio_venta = precio_venta;
     }
 
+    
     public String getProducto() {
         return producto;
     }
@@ -41,7 +55,62 @@ public class producto extends pers_produc{
         this.idmarca = idmarca;
     }
 
- public DefaultTableModel leer(){
+    public int getIdp() {
+        return idp;
+    }
+
+    public void setIdp(int idp) {
+        this.idp = idp;
+    }
+
+    public int getExistencia() {
+        return existencia;
+    }
+
+    public void setExistencia(int existencia) {
+        this.existencia = existencia;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public String getFecha_ingreso() {
+        return fecha_ingreso;
+    }
+
+    public void setFecha_ingreso(String fecha_ingreso) {
+        this.fecha_ingreso = fecha_ingreso;
+    }
+
+    public float getPrecio_costos() {
+        return precio_costos;
+    }
+
+    public void setPrecio_costos(float precio_costos) {
+        this.precio_costos = precio_costos;
+    }
+
+    public float getPrecio_venta() {
+        return precio_venta;
+    }
+
+    public void setPrecio_venta(float precio_venta) {
+        this.precio_venta = precio_venta;
+    }
+    public DefaultTableModel leer(){
     DefaultTableModel tabla = new DefaultTableModel();
     try{
         cn = new conexion();
@@ -74,7 +143,7 @@ public class producto extends pers_produc{
     return tabla;
     }    
 
-@Override
+//@Override
     public int agregar(){
         int retorno =0;
         try{
@@ -91,7 +160,8 @@ public class producto extends pers_produc{
             parametro.setString(4, getImagen());
             parametro.setFloat(5, getPrecio_costos());
             parametro.setFloat(6, getPrecio_venta());
-            parametro.setInt(7, getExitencia());
+            parametro.setInt(7, this.getExistencia());
+            //parametro.setInt(7, getExitencia());
             parametro.setString(8, getFecha_ingreso());
             
             retorno = parametro.executeUpdate();
@@ -104,7 +174,7 @@ public class producto extends pers_produc{
         return retorno;
   }   
     
-        @Override
+        //@Override
     public int modificar(){
         int retorno =0;
         try{
@@ -122,7 +192,8 @@ public class producto extends pers_produc{
             parametro.setString(4, getImagen());
             parametro.setFloat(5, getPrecio_costos());
             parametro.setFloat(6, getPrecio_venta());
-            parametro.setInt(7, getExitencia());
+            parametro.setInt(7, getExistencia());
+            //parametro.setInt(7, getExitencia());
             parametro.setString(8, getFecha_ingreso());
             parametro.setInt(9, getIdp());
             
@@ -135,7 +206,7 @@ public class producto extends pers_produc{
     }
         return retorno;
   }   
-    @Override
+    //@Override
     public int eliminar(){
         int retorno =0;
         try{
@@ -156,6 +227,6 @@ public class producto extends pers_produc{
             retorno = 0;
         }
           return retorno;
-  }   
-  
+  }
+        
 }
