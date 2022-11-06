@@ -152,7 +152,7 @@ public class producto{
             
             String query = "INSERT INTO productos (producto,idmarca,descripcion,imagen,precio_costo,precio_venta,existencia,fecha_ingreso) VALUES (?,?,?,?,?,?,?,?);";
             
-            cn.abrir_conexion();
+            cn.abrir_conexion(); 
             parametro = (PreparedStatement)cn.conexionBD.prepareStatement(query);
             parametro.setString(1, getProducto());
             parametro.setInt(2, getIdmarca());
